@@ -35,6 +35,14 @@ export const stylesApex: CSSResultGroup = css`
     grid-template-rows: 52px minmax(0, 1fr);
   }
 
+  ha-card.compact {
+    overflow: visible;
+  }
+
+  ha-card.compact:hover {
+    z-index: 20;
+  }
+
   ha-card.compact #header {
     box-sizing: border-box;
     min-height: 52px;
@@ -67,7 +75,11 @@ export const stylesApex: CSSResultGroup = css`
 
   ha-card.compact #graph-wrapper {
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  ha-card.compact .apexcharts-canvas {
+    overflow: visible !important;
   }
 
   #brush {

@@ -33,6 +33,14 @@ function e(e,t,o,i){var a,n=arguments.length,r=n<3?t:null===i?i=Object.getOwnPro
     grid-template-rows: 52px minmax(0, 1fr);
   }
 
+  ha-card.compact {
+    overflow: visible;
+  }
+
+  ha-card.compact:hover {
+    z-index: 20;
+  }
+
   ha-card.compact #header {
     box-sizing: border-box;
     min-height: 52px;
@@ -65,7 +73,11 @@ function e(e,t,o,i){var a,n=arguments.length,r=n<3?t:null===i?i=Object.getOwnPro
 
   ha-card.compact #graph-wrapper {
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  ha-card.compact .apexcharts-canvas {
+    overflow: visible !important;
   }
 
   #brush {
