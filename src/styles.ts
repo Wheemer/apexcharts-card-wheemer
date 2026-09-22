@@ -68,7 +68,6 @@ export const stylesApex: CSSResultGroup = css`
   ha-card.compact #graph-wrapper {
     box-sizing: border-box;
     overflow: hidden;
-    padding-bottom: 2px;
   }
 
   #brush {

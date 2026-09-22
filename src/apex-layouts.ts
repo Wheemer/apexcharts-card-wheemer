@@ -47,7 +47,7 @@ export function getLayoutConfig(
     },
     grid: {
       strokeDashArray: 3,
-      padding: compact ? { left: 0, right: 0, top: 2, bottom: 10 } : undefined,
+      padding: compact ? { left: 0, right: 0, top: 2, bottom: 6 } : undefined,
     },
     fill: {
       opacity: getFillOpacity(config, false),
