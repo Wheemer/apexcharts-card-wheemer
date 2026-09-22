@@ -8,6 +8,12 @@ import { DEFAULT_FLOAT_PRECISION, DEFAULT_MAX, DEFAULT_MIN, moment, NO_VALUE } f
 import { formatNumber, FrontendLocaleData, HomeAssistant } from 'custom-card-helpers';
 import { OverrideFrontendLocaleData } from './types-ha';
 
+export function isCompactSection(config: ChartCardExternalConfig): boolean {
+  if (config.compact_mode !== undefined) return config.compact_mode;
+  const rows = config.grid_options?.rows;
+  return Boolean(config.section_mode && typeof rows === 'number' && rows <= 2);
+}
+
 export function compress(data: unknown): string {
   return lzStringCompress(JSON.stringify(data));
 }

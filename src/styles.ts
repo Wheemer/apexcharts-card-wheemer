@@ -31,6 +31,46 @@ export const stylesApex: CSSResultGroup = css`
     min-height: 0;
   }
 
+  ha-card.compact .wrapper {
+    grid-template-rows: 52px minmax(0, 1fr);
+  }
+
+  ha-card.compact #header {
+    box-sizing: border-box;
+    min-height: 52px;
+    padding: 8px 14px 0;
+  }
+
+  ha-card.compact #header__title {
+    font-size: 13px;
+    line-height: 16px;
+    padding-bottom: 2px;
+  }
+
+  ha-card.compact #header__states {
+    flex-wrap: nowrap;
+    margin: 0;
+  }
+
+  ha-card.compact #header__states > * {
+    margin: 0;
+  }
+
+  ha-card.compact #state__value > #state {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  ha-card.compact #state__value > #uom {
+    font-size: 12px;
+  }
+
+  ha-card.compact #graph-wrapper {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-bottom: 2px;
+  }
+
   #brush {
     margin-top: -30px;
   }

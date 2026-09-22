@@ -38,6 +38,7 @@ import {
   validateInterval,
   validateOffset,
   getLovelace,
+  isCompactSection,
   isUsingServerTimezone,
   computeTimezoneDiffWithLocal,
 } from './utils';
@@ -581,6 +582,7 @@ class ChartsCard extends LitElement {
     };
     const haCardClasses: ClassInfo = {
       section: this._config.section_mode || false,
+      compact: isCompactSection(this._config),
     };
 
     const standardHeaderTitle = this._config.header?.standard_format ? this._config.header?.title : undefined;

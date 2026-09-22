@@ -9,6 +9,7 @@ export const ChartCardExternalConfig = t.iface([], {
   "config_templates": t.opt(t.union(t.array("string"), "string")),
   "color_list": t.opt(t.array("string")),
   "section_mode": t.opt("boolean"),
+  "compact_mode": t.opt("boolean"),
   "locale": t.opt("string"),
   "experimental": t.opt(t.iface([], {
     "color_threshold": t.opt("boolean"),

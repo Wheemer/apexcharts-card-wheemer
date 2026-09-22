@@ -11,7 +11,7 @@ import {
   TIMESERIES_TYPES,
 } from './const';
 import { ChartCardConfig } from './types';
-import { computeName, computeUom, is12Hour, mergeDeep, myFormatNumber, prettyPrintTime } from './utils';
+import { computeName, computeUom, is12Hour, isCompactSection, mergeDeep, myFormatNumber, prettyPrintTime } from './utils';
 import { layoutMinimal } from './layouts/minimal';
 import { getLocales, getDefaultLocale } from './locales';
 import GraphEntry from './graphEntry';
@@ -22,9 +22,11 @@ export function getLayoutConfig(
   graphs: (GraphEntry | undefined)[] | undefined,
 ): unknown {
   const locales = getLocales();
+  const compact = isCompactSection(config);
   const def = {
     chart: {
       height: config.section_mode ? '100%' : undefined,
+      parentHeightOffset: compact ? 0 : undefined,
       locales: [
         (config.locale && locales[config.locale]) || (hass?.language && locales[hass.language]) || getDefaultLocale(),
       ],
@@ -45,6 +47,7 @@ export function getLayoutConfig(
     },
     grid: {
       strokeDashArray: 3,
+      padding: compact ? { left: 0, right: 0, top: 2, bottom: 10 } : undefined,
     },
     fill: {
       opacity: getFillOpacity(config, false),
@@ -72,7 +75,7 @@ export function getLayoutConfig(
     },
     legend: {
       position: 'bottom',
-      show: true,
+      show: compact ? false : true,
       formatter: getLegendFormatter(config, hass),
       markers: getLegendMarkers(config),
     },

@@ -1,3 +1,9 @@
+## 2.2.3-wheemer.1
+
+- Add automatic compact layout for two-row cards in Home Assistant Sections views.
+- Keep the header and chart in stable grid tracks so compact charts do not overlap or clip.
+- Add edge-safe plot padding and allow `compact_mode` to override automatic detection.
+
 ## [2.2.3](https://github.com/RomRider/apexcharts-card/compare/v2.2.2...v2.2.3) (2025-08-21)
 
 ### Bug Fixes
