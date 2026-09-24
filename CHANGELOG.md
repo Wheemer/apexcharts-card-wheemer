@@ -1,3 +1,7 @@
+## 2.2.3-wheemer.6
+
+- Draw the compact hover marker when the value is zero. The previous build still skipped the bottom of the plot.
+
 ## 2.2.3-wheemer.5
 
 - Shrink the hover point on compact charts and keep it inside the plot, including under the header.
