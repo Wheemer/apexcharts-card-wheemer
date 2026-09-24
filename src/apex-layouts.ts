@@ -47,7 +47,7 @@ export function getLayoutConfig(
     },
     grid: {
       strokeDashArray: 3,
-      padding: compact ? { left: 8, right: 10, top: 4, bottom: 10 } : undefined,
+      padding: compact ? { left: 4, right: 6, top: 2, bottom: 4 } : undefined,
     },
     fill: {
       opacity: getFillOpacity(config, false),
@@ -111,16 +111,15 @@ export function getLayoutConfig(
   return compact ? applyCompactChrome(layout) : layout;
 }
 
-// Sparkline mode zeroes plot padding and lets the stroke paint on the card edge.
-// Compact cards keep axes hidden, inset the plot by a fixed amount, and turn
-// nice-scale off so a configured minimum stays on the same pixel row.
+// Sparkline keeps the plot as tall as the card. A few pixels of padding and a
+// clipped SVG keep the stroke inside the rounded corner without flattening the series.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function applyCompactChrome(layout: any): any {
   layout.chart = layout.chart || {};
-  layout.chart.sparkline = { enabled: false };
+  layout.chart.sparkline = { enabled: true };
   layout.chart.parentHeightOffset = 0;
   layout.grid = layout.grid || {};
-  layout.grid.padding = { left: 8, right: 10, top: 4, bottom: 10 };
+  layout.grid.padding = { left: 4, right: 6, top: 2, bottom: 4 };
   layout.xaxis = layout.xaxis || {};
   layout.xaxis.labels = { ...(layout.xaxis.labels || {}), show: false };
   layout.xaxis.axisBorder = { show: false };

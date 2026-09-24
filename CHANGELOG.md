@@ -1,3 +1,8 @@
+## 2.2.3-wheemer.3
+
+- Keep compact charts in sparkline mode so the plot uses the full graph height.
+- Inset the plot by only a few pixels so the stroke stays inside without flattening the series.
+
 ## 2.2.3-wheemer.2
 
 - Clip compact chart strokes to the plot so lines stay inside the card.
