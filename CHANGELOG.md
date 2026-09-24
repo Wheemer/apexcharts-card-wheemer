@@ -1,3 +1,8 @@
+## 2.2.3-wheemer.5
+
+- Shrink the hover point on compact charts and keep it inside the plot, including under the header.
+- Show that point when the value is zero or at the top of the scale.
+
 ## 2.2.3-wheemer.4
 
 - Align the compact tooltip dot with the value text.

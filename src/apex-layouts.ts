@@ -47,7 +47,7 @@ export function getLayoutConfig(
     },
     grid: {
       strokeDashArray: 3,
-      padding: compact ? { left: 4, right: 6, top: 2, bottom: 4 } : undefined,
+      padding: compact ? { left: 4, right: 6, top: 8, bottom: 6 } : undefined,
     },
     fill: {
       opacity: getFillOpacity(config, false),
@@ -119,7 +119,17 @@ function applyCompactChrome(layout: any): any {
   layout.chart.sparkline = { enabled: true };
   layout.chart.parentHeightOffset = 0;
   layout.grid = layout.grid || {};
-  layout.grid.padding = { left: 4, right: 6, top: 2, bottom: 4 };
+  layout.grid.padding = { left: 4, right: 6, top: 8, bottom: 6 };
+  layout.markers = {
+    ...(layout.markers || {}),
+    size: 0,
+    strokeWidth: 1,
+    hover: {
+      ...((layout.markers && layout.markers.hover) || {}),
+      size: 3,
+      sizeOffset: 0,
+    },
+  };
   layout.xaxis = layout.xaxis || {};
   layout.xaxis.labels = { ...(layout.xaxis.labels || {}), show: false };
   layout.xaxis.axisBorder = { show: false };
