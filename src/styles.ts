@@ -87,6 +87,80 @@ export const stylesApex: CSSResultGroup = css`
     overflow: hidden !important;
   }
 
+  ha-card.compact .apexcharts-tooltip {
+    transition: opacity 0.12s ease !important;
+    border-radius: 8px !important;
+    background: var(--card-background-color) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--divider-color) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-title {
+    margin: 0 !important;
+    padding: 6px 10px 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: var(--secondary-text-color) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    line-height: 14px !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-series-group {
+    align-items: center !important;
+    padding: 4px 10px 6px !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-series-group.apexcharts-active {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-marker {
+    position: relative !important;
+    top: 0 !important;
+    flex: 0 0 8px !important;
+    width: 8px !important;
+    height: 8px !important;
+    margin: 0 6px 0 0 !important;
+    padding: 0 !important;
+    align-self: center !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    border-radius: 50% !important;
+    background: currentColor !important;
+    overflow: hidden !important;
+    transform: none !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-marker::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-text,
+  ha-card.compact .apexcharts-tooltip-y-group {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 16px !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-text-y-label:empty {
+    display: none !important;
+  }
+
+  ha-card.compact .apexcharts-tooltip-text-y-value {
+    margin: 0 !important;
+    line-height: 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
   #brush {
     margin-top: -30px;
   }

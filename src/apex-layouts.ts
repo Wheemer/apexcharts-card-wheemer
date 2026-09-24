@@ -125,6 +125,10 @@ function applyCompactChrome(layout: any): any {
   layout.xaxis.axisBorder = { show: false };
   layout.xaxis.axisTicks = { show: false };
   layout.xaxis.tooltip = { enabled: false };
+  layout.tooltip = layout.tooltip || {};
+  layout.tooltip.followCursor = false;
+  layout.tooltip.y = layout.tooltip.y || {};
+  layout.tooltip.y.title = { formatter: () => '' };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const lockAxis = (axis: any) => ({
     ...axis,

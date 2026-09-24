@@ -1,3 +1,8 @@
+## 2.2.3-wheemer.4
+
+- Align the compact tooltip dot with the value text.
+- Drop the series name from compact tooltips and anchor the popup to the point.
+
 ## 2.2.3-wheemer.3
 
 - Keep compact charts in sparkline mode so the plot uses the full graph height.
