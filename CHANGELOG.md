@@ -1,3 +1,10 @@
+## 2.2.3-wheemer.2
+
+- Clip compact chart strokes to the plot so lines stay inside the card.
+- Keep compact hover tooltips free to draw above neighboring cards.
+- Use a fixed plot inset and disable sparkline padding so the axis minimum sits on the same row.
+- Draw compact smooth series as monotone curves so they do not bend past the data.
+
 ## 2.2.3-wheemer.1
 
 - Add automatic compact layout for two-row cards in Home Assistant Sections views.

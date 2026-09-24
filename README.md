@@ -133,7 +133,7 @@ The card strictly validates all the options available (but not for the `apex_con
 | :white_check_mark: `type` | string | | v1.0.0 | `custom:apexcharts-card` |
 | :white_check_mark: `series` | array | | v1.0.0 | See [series](#series-options) |
 | `section_mode` | boolean | `false` | v2.2.0 | Set to `true` when the card is used in a section view (sets CSS height to `100%`). See [Sections Views](#sections-views) |
-| `compact_mode` | boolean | auto | Wheemer fork | Uses a stable compact header and edge-safe plot area. Defaults to `true` for two-row cards in Sections views and can be explicitly enabled or disabled. |
+| `compact_mode` | boolean | auto | Wheemer fork | Uses a stable compact header, a fixed plot inset, and a clipped stroke. Smooth series are drawn as monotone curves. Defaults to `true` for two-row cards in Sections views and can be explicitly enabled or disabled. |
 | `config_templates` | array | | v1.6.0 | Define a configuration once and reuse it multiple times. See [config_templates](#configuration-templates) |
 | `color_list` | array | | v1.6.0 | Define the array of colors applied to the series. Will be overridden by each series's color if defined. Useful for `config_templates` mainly. |
 | `all_series_config` | object | | v1.6.0 | If something is defined here it will apply this config to all the series. It accepts the same options as a series minus `entity`. It is useful to avoid repetition but the same thing can be achieved in each series individually. See [series](#series-options) and [all_series_config](#all_series_config-options) for an example |

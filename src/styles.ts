@@ -36,10 +36,11 @@ export const stylesApex: CSSResultGroup = css`
   }
 
   ha-card.compact {
-    overflow: visible;
+    overflow: hidden;
   }
 
   ha-card.compact:hover {
+    overflow: visible;
     z-index: 20;
   }
 
@@ -80,6 +81,10 @@ export const stylesApex: CSSResultGroup = css`
 
   ha-card.compact .apexcharts-canvas {
     overflow: visible !important;
+  }
+
+  ha-card.compact .apexcharts-svg {
+    overflow: hidden !important;
   }
 
   #brush {

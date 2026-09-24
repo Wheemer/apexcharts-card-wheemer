@@ -47,7 +47,7 @@ export function getLayoutConfig(
     },
     grid: {
       strokeDashArray: 3,
-      padding: compact ? { left: 0, right: 0, top: 2, bottom: 6 } : undefined,
+      padding: compact ? { left: 8, right: 10, top: 4, bottom: 10 } : undefined,
     },
     fill: {
       opacity: getFillOpacity(config, false),
@@ -105,9 +105,39 @@ export function getLayoutConfig(
       break;
   }
 
-  return config.apex_config
+  const layout = config.apex_config
     ? mergeDeep(mergeDeep(def, conf), evalApexConfig(config.apex_config))
     : mergeDeep(def, conf);
+  return compact ? applyCompactChrome(layout) : layout;
+}
+
+// Sparkline mode zeroes plot padding and lets the stroke paint on the card edge.
+// Compact cards keep axes hidden, inset the plot by a fixed amount, and turn
+// nice-scale off so a configured minimum stays on the same pixel row.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function applyCompactChrome(layout: any): any {
+  layout.chart = layout.chart || {};
+  layout.chart.sparkline = { enabled: false };
+  layout.chart.parentHeightOffset = 0;
+  layout.grid = layout.grid || {};
+  layout.grid.padding = { left: 8, right: 10, top: 4, bottom: 10 };
+  layout.xaxis = layout.xaxis || {};
+  layout.xaxis.labels = { ...(layout.xaxis.labels || {}), show: false };
+  layout.xaxis.axisBorder = { show: false };
+  layout.xaxis.axisTicks = { show: false };
+  layout.xaxis.tooltip = { enabled: false };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const lockAxis = (axis: any) => ({
+    ...axis,
+    show: false,
+    forceNiceScale: false,
+  });
+  if (Array.isArray(layout.yaxis)) {
+    layout.yaxis = layout.yaxis.map(lockAxis);
+  } else {
+    layout.yaxis = lockAxis(layout.yaxis || {});
+  }
+  return layout;
 }
 
 export function getBrushLayoutConfig(
@@ -445,8 +475,11 @@ function getLegendMarkers(config: ChartCardConfig) {
 
 function getStrokeCurve(config: ChartCardConfig, brush: boolean) {
   const series = brush ? config.series_in_brush : config.series_in_graph;
+  const compact = isCompactSection(config);
   return series.map((serie) => {
-    return serie.curve || 'smooth';
+    const curve = serie.curve || 'smooth';
+    // Smooth curves bend past the data and leave a short card.
+    return compact && curve === 'smooth' ? 'monotoneCubic' : curve;
   });
 }
 
